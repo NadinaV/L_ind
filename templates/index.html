@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmi de Programare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Coloana pentru selectia algoritmului -->
+            <div class="col-md-3 mb-4">
+                <div class="algorithm-container">
+                    <h4>Algoritmi Disponibili</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="algorithm" id="fcfs" value="fcfs">
+                        <label class="form-check-label" for="fcfs">
+                            Primul venit - primul servit (FCFS)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="algorithm" id="sjf" value="sjf">
+                        <label class="form-check-label" for="sjf">
+                            Cel mai scurt timp de execuție (SJF)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="algorithm" id="srtf" value="srtf">
+                        <label class="form-check-label" for="srtf">
+                            Cel mai scurt timp rămas (SRTF)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="algorithm" id="rr" value="rr">
+                        <label class="form-check-label" for="rr">
+                            Round Robin (RR)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coloana pentru formularul de input si rezultate -->
+            <div class="col-md-9">
+                <h2>Algoritmi de Programare</h2>
+
+                <!-- Formular pentru calcularea algoritmului -->
+                <form id="algorithm-form">
+                    <div class="mb-3">
+                        <label for="process_time" class="form-label">Introduceti timpii de execuție pentru procese (ex: 10, 2, 4, 6):</label>
+                        <input type="text" id="process_time" class="form-control" required>
+                    </div>
+                    <div class="mb-3" id="quantum-container" style="display: none;">
+                        <label for="quantum" class="form-label">Introduceti cuantul:</label>
+                        <input type="number" name="quantum" id="quantum" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculare</button>
+                </form>
+
+                <div id="results" style="display:none;">
+                    <h3 class="mt-5">Rezultate:</h3>
+                    <table class="table" id="results-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Proces</th>
+                                <th scope="col">Timp Executie</th>
+                                <th scope="col">Timp Realizare</th>
+                                <th scope="col">Timp Asteptare</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body"></tbody>
+                    </table>
+
+                    <h5 id="avg-turn-around-time"></h5>
+                    <h5 id="avg-waiting-time"></h5>
+                    <h5 id="execution_order"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
